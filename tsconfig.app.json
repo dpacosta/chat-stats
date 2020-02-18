@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [
+      "mocha",
+      "node"]
+  },
+  "files": [
+    "angular-app/main.ts",
+    "angular-app/polyfills.ts"
+  ],
+  "include": [
+    "angular-app/**/*.ts",
+    "node-api/src/**/*.ts"
+  ],
+  "exclude": [
+    "angular-app/test.ts",
+    "angular-app/**/*.spec.ts"
+  ]
+}

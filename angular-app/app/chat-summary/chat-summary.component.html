@@ -1,0 +1,45 @@
+<div *ngIf="!loading">
+  <div *ngIf="!players">
+    <h2>Hello :)</h2>
+    <h3>Please upload the data extracted from the conversations</h3>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="input-group w-50">
+        <div class="custom-file">
+          <input class="custom-file-input"
+                 type="file"
+                 id="file"
+                 (change)="handleFileInput($event.target.files)">
+          <label class="custom-file-label" for="file">
+            {{fileToUpload ? fileToUpload.name : 'Choose file'}}
+          </label>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-dark mt-3" (click)="uploadFile()">Upload</button>
+  </div>
+  <div *ngIf="players">
+    <h3>Place the cursor on the results and scroll to the left to show more</h3>
+    <ngx-charts-advanced-pie-chart
+      [view]="view"
+      [label]="'Messages'"
+      [results]="players"
+    >
+    </ngx-charts-advanced-pie-chart>
+    <ngx-charts-advanced-pie-chart
+      [view]="view"
+      [label]="'Topic Assignments'"
+      [results]="topics"
+    >
+    </ngx-charts-advanced-pie-chart>
+  </div>
+</div>
+<div *ngIf="loading">
+  <div class="spinner-grow text-primary" role="status"></div>
+  <div class="spinner-grow text-secondary" role="status"></div>
+  <div class="spinner-grow text-success" role="status"></div>
+  <div class="spinner-grow text-danger" role="status"></div>
+  <div class="spinner-grow text-warning" role="status"></div>
+  <div class="spinner-grow text-info" role="status"></div>
+  <div class="spinner-grow text-light" role="status"></div>
+  <div class="spinner-grow text-dark" role="status"></div>
+</div>

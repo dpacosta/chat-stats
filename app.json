@@ -1,0 +1,6 @@
+{
+  "name": "Chat Stats",
+  "description": "File uploader and processor",
+  "repository": "https://github.com/dpacosta/chat-stats",
+  "keywords": ["node", "express", "angular"]
+}

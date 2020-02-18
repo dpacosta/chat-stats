@@ -1,0 +1,83 @@
+{
+  "$schema": "node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "chat-stats": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "angular-app",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/chat-stats",
+            "index": "angular-app/index.html",
+            "main": "angular-app/main.ts",
+            "polyfills": "angular-app/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "angular-app/favicon.ico",
+              "angular-app/assets"
+            ],
+            "styles": [
+              "angular-app/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "angular-app/environments/environment.ts",
+                  "with": "angular-app/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "chat-stats:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "chat-stats:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "chat-stats:build"
+          }
+        }
+      }
+    }},
+  "defaultProject": "chat-stats"
+}
