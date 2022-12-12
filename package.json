@@ -23,7 +23,7 @@
     "@angular/router": "~8.2.14",
     "@swimlane/ngx-charts": "^13.0.2",
     "concat-stream": "^1.5.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jsonlines": "^0.1.1",
     "mocha": "^7.0.0",
     "multer": "^1.4.2",
